@@ -20,12 +20,12 @@
         hide-details
       ></v-checkbox>
     </v-app-bar>
-    <!-- <v-sheet
+    <v-sheet
       id="scrolling-techniques-6"
       class="overflow-y-auto"
       max-height="600"
     >
-      <v-container style="height: 1000px;"></v-container>
-    </v-sheet> -->
+      <v-container style="height: 300px;"></v-container>
+    </v-sheet>
   </v-card>
 </template>
