@@ -4,7 +4,7 @@
     dark
     absolute
     elevate-on-scroll
-    scroll-target="#scrolling-techniques-7"
+    scroll-target="#scrolling-on-page-navbar"
   >
     <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
@@ -24,11 +24,4 @@
       <v-icon>mdi-dots-vertical</v-icon>
     </v-btn>
   </v-app-bar>
-  <!-- <v-sheet
-      id="scrolling-techniques-7"
-      class="overflow-y-auto"
-      max-height="600"
-    >
-      <v-container style="height: 1500px;"> </v-container>
-    </v-sheet> -->
 </template>
