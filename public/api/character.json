@@ -1,0 +1,44 @@
+[
+  {
+    "id": 0,
+    "name": "Darth Maul",
+    "health": 10,
+    "attack": 5,
+    "src": "darth_maul.jpg"
+  },
+  {
+    "id": 1,
+    "name": "yoda",
+    "health": 10,
+    "attack": 5,
+    "src": "yoda.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Darth vader",
+    "health": 10,
+    "attack": 5,
+    "src": "darth_vader.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Obi Wan Kenobi",
+    "health": 10,
+    "attack": 5,
+    "src": "obi_wan_kenobi.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Obi Wan Kenobi Old",
+    "health": 5,
+    "attack": 4,
+    "src": "obi_wan_kenobi_old.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Jar Jar",
+    "health": 5,
+    "attack": 1,
+    "src": "jar_jar.jpg"
+  }
+]
