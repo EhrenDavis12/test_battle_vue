@@ -10,13 +10,14 @@
 
     <v-row class="text-center">
       <v-col v-for="character in characters" :key="character.id">
-        <slot :character="character" :selectCharacter="selectCharacter"></slot>
+        <CharacterCard :character="character" :imgClick="selectCharacter" />
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
+import CharacterCard from "./CharacterCard";
 export default {
   name: "CharacterLineUp",
 
@@ -30,6 +31,9 @@ export default {
       default: () => {}
     }
   },
+  components: {
+    CharacterCard
+  },
   data() {
     return {
       characters: [
@@ -37,14 +41,14 @@ export default {
           id: 0,
           name: "Darth Maul",
           health: 10,
-          attack: 5,
+          attack: 2,
           src: "darth_maul.jpg"
         },
         {
           id: 1,
           name: "yoda",
           health: 10,
-          attack: 5,
+          attack: 3,
           src: "yoda.jpg"
         }
       ],

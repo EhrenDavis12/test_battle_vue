@@ -3,22 +3,27 @@
     <CharacterLineUp
       v-if="this.player === undefined"
       title="Select your character"
+      :selectCharacter="selectPlayer"
     >
-      <template slot-scope="{ character }">
-        <CharacterCard :character="character" :selectCharacter="selectPlayer" />
-      </template>
     </CharacterLineUp>
-    <CharacterLineUp v-if="this.enemy === undefined" title="Select your enemy">
-      <template slot-scope="{ character }">
-        <CharacterCard :character="character" :selectCharacter="selectEnemy" />
-      </template>
+    <CharacterLineUp
+      v-if="this.enemy === undefined"
+      title="Select your enemy"
+      :selectCharacter="selectEnemy"
+    >
     </CharacterLineUp>
+    <FightScreen
+      v-if="this.player !== undefined && this.enemy !== undefined"
+      :player="player"
+      :enemy="enemy"
+    >
+    </FightScreen>
   </v-container>
 </template>
 
 <script>
 import CharacterLineUp from "./CharacterLineUp";
-import CharacterCard from "./CharacterCard";
+import FightScreen from "./FightScreen";
 export default {
   name: "FightSetup",
 
@@ -30,19 +35,17 @@ export default {
   },
   components: {
     CharacterLineUp,
-    CharacterCard
+    FightScreen
   },
   methods: {
     selectPlayer(character) {
-      // eslint-disable-next-line no-debugger
-      //   debugger;
       this.player = character;
+      this.player.maxhealth = this.player.health;
       console.log(`your player is ${this.player.name}`);
     },
     selectEnemy(character) {
-      // eslint-disable-next-line no-debugger
-      //   debugger;
       this.enemy = character;
+      this.enemy.maxhealth = this.enemy.health;
       console.log(`your enemy will be ${this.enemy.name}`);
     }
   }
