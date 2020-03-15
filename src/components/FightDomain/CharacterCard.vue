@@ -7,18 +7,13 @@
       :class="`d-inline-block mx-auto elevation-${hover ? hoverClass : 2}`"
     >
       <v-container>
-        <v-row justify="space-between">
-          <v-col cols="auto">
-            <v-img
-              height="200"
-              width="200"
-              :src="imageSrc"
-              @click="imgClick(character)"
-            ></v-img>
-
-            <h5>{{ character.name }}</h5>
-          </v-col>
-        </v-row>
+        <v-img
+          :height="200"
+          :width="200"
+          :src="imageSrc"
+          @click="imgClick(character)"
+        ></v-img>
+        <h5>{{ character.name }}</h5>
       </v-container>
     </v-card>
   </v-hover>
