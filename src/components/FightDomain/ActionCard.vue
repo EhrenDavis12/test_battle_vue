@@ -1,5 +1,10 @@
 <template>
-  <v-card :raised="false" :color="cardColor" class="d-inline-block mx-2">
+  <v-card
+    v-if="this.srcImage"
+    :raised="false"
+    :color="cardColor"
+    class="d-inline-block mx-2"
+  >
     <v-container>
       <v-img :height="100" :width="100" :src="imageSrc"></v-img>
     </v-container>

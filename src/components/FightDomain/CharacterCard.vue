@@ -11,9 +11,9 @@
           :height="200"
           :width="200"
           :src="imageSrc"
-          @click="imgClick(character)"
+          @click="$emit('imgClick')"
         ></v-img>
-        <h5>{{ character.name }}</h5>
+        <h5>{{ name }}</h5>
       </v-container>
     </v-card>
   </v-hover>
@@ -23,13 +23,13 @@
 export default {
   name: "CharacterCard",
   props: {
-    character: {
-      type: Object,
-      default: () => {}
+    name: {
+      type: String,
+      default: "Undefined"
     },
-    imgClick: {
-      type: Function,
-      default: () => {}
+    imageName: {
+      type: String,
+      default: "Undefined"
     },
     disableHover: {
       type: Boolean,
@@ -37,12 +37,12 @@ export default {
     },
     cardColor: {
       type: String,
-      default: "black"
+      default: "white"
     }
   },
   computed: {
     imageSrc: function() {
-      return require(`../../assets/characters/${this.character.src}`);
+      return require(`../../assets/characters/${this.imageName}`);
     },
     hoverClass: function() {
       return this.disableHover ? 2 : 12;

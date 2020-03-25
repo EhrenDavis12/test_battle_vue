@@ -1,18 +1,18 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import { FightSetup } from "../components/FightDomain/";
+import { MainMenu } from "../components/FightDomain/";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    redirect: "/fight-setup"
+    redirect: "/main-menu"
   },
   {
-    path: "/fight-setup",
-    name: "fight-setup",
-    component: FightSetup
+    path: "/main-menu",
+    name: "main-menu",
+    component: MainMenu
   },
   {
     path: "/about",

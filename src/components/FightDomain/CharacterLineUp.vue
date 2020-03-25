@@ -10,7 +10,11 @@
 
     <v-row class="text-center">
       <v-col v-for="character in characters" :key="character.id">
-        <CharacterCard :character="character" :imgClick="selectCharacter" />
+        <CharacterCard
+          :name="character.name"
+          :imageName="character.src"
+          @imgClick="$emit('selectedCharacter', character)"
+        />
       </v-col>
     </v-row>
   </v-container>
@@ -25,10 +29,6 @@ export default {
     title: {
       type: String,
       default: "Select your ????"
-    },
-    selectCharacter: {
-      type: Function,
-      default: () => {}
     }
   },
   components: {
@@ -51,8 +51,7 @@ export default {
           attack: 3,
           src: "yoda.jpg"
         }
-      ],
-      selectedCharacter: undefined
+      ]
     };
   }
 };

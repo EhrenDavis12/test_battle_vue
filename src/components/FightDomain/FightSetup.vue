@@ -1,29 +1,22 @@
 <template>
   <v-container>
     <CharacterLineUp
-      v-if="this.player === undefined"
+      v-if="!this.player"
       title="Select your character"
-      :selectCharacter="selectPlayer"
+      @selectedCharacter="selectPlayer"
     >
     </CharacterLineUp>
     <CharacterLineUp
-      v-if="this.enemy === undefined"
+      v-if="this.player"
       title="Select your enemy"
-      :selectCharacter="selectEnemy"
+      @selectedCharacter="selectEnemy"
     >
     </CharacterLineUp>
-    <FightScreen
-      v-if="this.player !== undefined && this.enemy !== undefined"
-      :player="player"
-      :enemy="enemy"
-    >
-    </FightScreen>
   </v-container>
 </template>
 
 <script>
 import CharacterLineUp from "./CharacterLineUp";
-import FightScreen from "./FightScreen";
 export default {
   name: "FightSetup",
 
@@ -34,19 +27,20 @@ export default {
     };
   },
   components: {
-    CharacterLineUp,
-    FightScreen
+    CharacterLineUp
   },
   methods: {
     selectPlayer(character) {
       this.player = character;
       this.player.maxhealth = this.player.health;
-      console.log(`your player is ${this.player.name}`);
     },
     selectEnemy(character) {
       this.enemy = character;
       this.enemy.maxhealth = this.enemy.health;
-      console.log(`your enemy will be ${this.enemy.name}`);
+      this.$emit("selected", {
+        player: this.player,
+        enemy: this.enemy
+      });
     }
   }
 };

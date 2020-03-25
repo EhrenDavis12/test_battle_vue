@@ -15,12 +15,20 @@
 
     <v-row align="start" justify="space-between">
       <v-col cols="auto">
-        <CharacterCard :character="player" :disableHover="true" />
+        <CharacterCard
+          :name="player.name"
+          :imageName="player.src"
+          :disableHover="true"
+        />
         <ActionCard :srcImage="playerChoice" :cardColor="playerBoarderColor" />
       </v-col>
       <v-col cols="auto">
         <ActionCard :srcImage="enemyChoice" :cardColor="enemyBoarderColor" />
-        <CharacterCard :character="enemy" :disableHover="true" />
+        <CharacterCard
+          :name="enemy.name"
+          :imageName="enemy.src"
+          :disableHover="true"
+        />
       </v-col>
     </v-row>
 
@@ -78,7 +86,11 @@ export default {
       enemyChoice: ""
     };
   },
-  watcher: {},
+  watcher: {
+    // "enemy.health": function() {
+    //     return true;
+    //   }
+  },
   methods: {
     selectedAttack(playerChoice) {
       if (this.enemy.health < 1) return;
@@ -107,8 +119,14 @@ export default {
         this.enemyBoarderColor = "black";
       }
 
-      if (this.enemy.health < 1) this.enemy.health = 0;
-      if (this.player.health < 1) this.player.health = 0;
+      if (this.enemy.health < 1) {
+        this.enemy.health = 0;
+        this.$emit("won");
+      }
+      if (this.player.health < 1) {
+        this.player.health = 0;
+        this.$emit("lost");
+      }
     }
   }
 };
