@@ -10,13 +10,14 @@
       @lsot="playerLostFight"
     >
     </FightScreen>
-    <div v-if="this.screen === 'Shop'">Shop</div>
+    <ShopMenu v-if="this.screen === 'Shop'"></ShopMenu>
   </div>
 </template>
 
 <script>
 import FightSetup from "./FightSetup";
 import FightScreen from "./FightScreen";
+import ShopMenu from "./Shop/ShopMenu";
 export default {
   name: "MainMenue",
 
@@ -29,7 +30,8 @@ export default {
   },
   components: {
     FightSetup,
-    FightScreen
+    FightScreen,
+    ShopMenu
   },
   methods: {
     setCharacters(character) {
